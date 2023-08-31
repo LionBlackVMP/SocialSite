@@ -1,0 +1,15 @@
+.wrapper {
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "navigation mainContent"
+    "footer footer";
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1.5fr 10.5fr;
+  height: 100vh;
+}
+.content {
+  grid-area: mainContent;
+  background-color: gray;
+}
