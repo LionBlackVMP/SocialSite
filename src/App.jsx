@@ -9,7 +9,6 @@ import Groups from "./components/mainContent/groups/groups";
 import Settings from "./components/mainContent/settings/settings";
 
 const App = (props) => {
-  console.log(props);
   return (
     <BrowserRouter>
       <div className={style.wrapper}>
@@ -17,8 +16,19 @@ const App = (props) => {
         <Navbar />
         <div className={style.content}>
           <Routes>
-            <Route path="Profile" element={<Profile />} />
-            <Route path="Dialogs/*" element={<Dialogs />} />
+            <Route
+              path="Profile"
+              element={
+                <Profile
+                  data={props.data.profilePage}
+                  addPost={props.addPost}
+                />
+              }
+            />
+            <Route
+              path="Dialogs/*"
+              element={<Dialogs data={props.data.dialogsPage} />}
+            />
             <Route path="Groups" element={<Groups />} />
             <Route path="Settings" element={<Settings />} />
           </Routes>

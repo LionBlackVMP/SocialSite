@@ -2,21 +2,24 @@ import React from "react";
 import style from "./myPosts.module.scss";
 import Post from "./post/post";
 
-const MyPosts = () => {
-  let postsData = [
-    { id: 1, message: "Hello world!", likesCount: 5 },
-    { id: 1, message: "Hi man, how are u?", likesCount: 2 },
-    { id: 1, message: "Completely fine", likesCount: 15 },
-  ];
-  let postsElements = postsData.map((p) => (
+const MyPosts = (props) => {
+  let postsElements = props.data.postsData.map((p) => (
     <Post id={p.id} message={p.message} likesCount={p.likesCount} />
   ));
+  let newPostElement = React.createRef();
+
   return (
     <div>
       <div>
         {" "}
-        <textarea>what you think about?</textarea>
-        <button>add post</button>
+        <textarea name="what you think about?" ref={newPostElement} />
+        <button
+          onClick={() => {
+            props.addPost(newPostElement.current.value);
+          }}
+        >
+          add post
+        </button>
         new post
       </div>
       <div>
