@@ -12,10 +12,16 @@ const MyPosts = (props) => {
     <div>
       <div>
         {" "}
-        <textarea name="what you think about?" ref={newPostElement} />
+        <textarea
+          onChange={() => {
+            props.addTextToTextarea(newPostElement.current.value);
+          }}
+          value={props.data.newPostText}
+          ref={newPostElement}
+        />
         <button
           onClick={() => {
-            props.addPost(newPostElement.current.value);
+            props.addPost();
           }}
         >
           add post

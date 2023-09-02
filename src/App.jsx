@@ -22,6 +22,7 @@ const App = (props) => {
                 <Profile
                   data={props.data.profilePage}
                   addPost={props.addPost}
+                  addTextToTextarea={props.addTextToTextarea}
                 />
               }
             />

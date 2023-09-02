@@ -1,4 +1,5 @@
-import { rerenderEntireTree } from "../../render";
+let rerenderEntireTree;
+
 let data = {
   profilePage: {
     postsData: [
@@ -6,6 +7,7 @@ let data = {
       { id: 1, message: "Hi man, how are u?", likesCount: 2 },
       { id: 1, message: "Completely fine", likesCount: 15 },
     ],
+    newPostText: "hello",
   },
   dialogsPage: {
     dialogsData: [
@@ -21,13 +23,22 @@ let data = {
   },
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage,
+    message: data.profilePage.newPostText,
     likesCount: 0,
   };
   data.profilePage.postsData.push(newPost);
+  data.profilePage.newPostText = "";
   rerenderEntireTree(data);
 };
+export let addTextToTextarea = (text) => {
+  data.profilePage.newPostText = text;
+  rerenderEntireTree(data);
+};
+export let subscribe = (observe) => {
+  rerenderEntireTree = observe;
+};
+window.data = data;
 export default data;
