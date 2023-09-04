@@ -1,6 +1,5 @@
 let rerenderEntireTree;
 let store = {
-  rerenderEntireTree() {},
   _data: {
     profilePage: {
       postsData: [
@@ -23,31 +22,29 @@ let store = {
       ],
     },
   },
-  logs() {
-    console.log(this);
-  },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this.profilePage.newPostText,
-      likesCount: 0,
-    };
-    this.profilePage.postsData.push(newPost);
-    this.profilePage.newPostText = "";
 
-    this.rerenderEntireTree(this);
-  },
   getData() {
     return this._data;
   },
   addTextToTextarea(text) {
-    this.profilePage.newPostText = text;
-    this.rerenderEntireTree(this.getData());
+    this._data.profilePage.newPostText = text;
+    rerenderEntireTree(getData());
   },
   subscribe(observe) {
     rerenderEntireTree = observe;
   },
 };
 
+export let addPost = () => {
+  let data = store.getData();
+  let newPost = {
+    id: 5,
+    message: data.profilePage.newPostText,
+    likesCount: 0,
+  };
+  data.profilePage.postsData.push(newPost);
+  data.profilePage.newPostText = "";
+  rerenderEntireTree(data);
+};
 window.store = store;
 export default store;
