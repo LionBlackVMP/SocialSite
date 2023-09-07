@@ -7,14 +7,10 @@ import App from "./App";
 import store from "./components/redux/state";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let rerenderEntireTree = (data) => {
+let rerenderEntireTree = (state) => {
   root.render(
     <React.StrictMode>
-      <App
-        data={store.getData()}
-        addPost={store.addPost}
-        addTextToTextarea={store.addTextToTextarea}
-      />
+      <App state={state} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>
   );
 };
