@@ -3,7 +3,7 @@ import style from "./general/app.module.scss";
 import Header from "./components/header/header";
 import Profile from "./components/mainContent/profile/profile";
 import Navbar from "./components/navigation/navigation";
-import Dialogs from "./components/mainContent/dialogs/dialogs";
+import DialogsContainer from "./components/mainContent/dialogs/dialogsContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Groups from "./components/mainContent/groups/groups";
 import Settings from "./components/mainContent/settings/settings";
@@ -16,21 +16,14 @@ const App = (props) => {
         <Navbar />
         <div className={style.content}>
           <Routes>
-            <Route
-              path="Profile"
-              element={
-                <Profile
-                  state={props.state.profilePage}
-                  dispatch={props.dispatch}
-                />
-              }
-            />
+            <Route path="Profile" element={<Profile store={props.store} />} />
             <Route
               path="Dialogs/*"
               element={
-                <Dialogs
+                <DialogsContainer
                   state={props.state.dialogsPage}
                   dispatch={props.dispatch}
+                  store={props.store}
                 />
               }
             />
