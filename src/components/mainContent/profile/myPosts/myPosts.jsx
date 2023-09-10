@@ -4,7 +4,7 @@ import Post from "./post/post";
 
 const MyPosts = (props) => {
   let postsElements = props.profilePage.postsData.map((p) => (
-    <Post id={p.id} message={p.message} likesCount={p.likesCount} />
+    <Post id={p.id} key={p.id} message={p.message} likesCount={p.likesCount} />
   ));
   let newPostElement = React.createRef();
 
@@ -12,7 +12,7 @@ const MyPosts = (props) => {
     props.addPost();
   };
   let onPostChange = () => {
-    props.addTextToPublications(newPostElement.current.value);
+    props.PostChange(newPostElement.current.value);
   };
   return (
     <div>
