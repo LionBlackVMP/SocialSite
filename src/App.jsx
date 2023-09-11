@@ -7,6 +7,7 @@ import DialogsContainer from "./components/mainContent/dialogs/dialogsContainer"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Groups from "./components/mainContent/groups/groups";
 import Settings from "./components/mainContent/settings/settings";
+import UsersContainer from "./components/mainContent/users/usersContainer";
 
 const App = (props) => {
   return (
@@ -18,6 +19,7 @@ const App = (props) => {
           <Routes>
             <Route path="Profile" element={<Profile />} />
             <Route path="Dialogs/*" element={<DialogsContainer />} />
+            <Route path="users" element={<UsersContainer />} />
             <Route path="Groups" element={<Groups />} />
             <Route path="Settings" element={<Settings />} />
           </Routes>
