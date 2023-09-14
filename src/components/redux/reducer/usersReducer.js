@@ -26,11 +26,7 @@ const usersReducer = (state = initialState, action) => {
         }),
       };
     case SET_USERS:
-      debugger;
-      return {
-        ...state,
-        users: [...state.users, ...action.users],
-      };
+      return { ...state, users: action.users };
     default:
       return state;
   }
@@ -48,7 +44,6 @@ export const unfollowAC = (userId) => {
   };
 };
 export const setUsersAC = (users) => {
-  debugger;
   return {
     type: SET_USERS,
     users,

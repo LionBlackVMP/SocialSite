@@ -8,7 +8,6 @@ import {
 } from "../../redux/reducer/usersReducer";
 
 let mapStateToProps = (state) => {
-  debugger;
   return {
     users: state.usersPage.users,
   };
@@ -22,7 +21,6 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(unfollowAC(userId));
     },
     setUsers: (users) => {
-      debugger;
       dispatch(setUsersAC(users));
     },
   };
