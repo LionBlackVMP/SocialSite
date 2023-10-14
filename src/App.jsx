@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Groups from "./components/mainContent/groups/groups";
 import Settings from "./components/mainContent/settings/settings";
 import UsersContainer from "./components/mainContent/users/usersContainer";
+import ProfileContainer from "./components/mainContent/profile/ProfileContainer";
 
 const App = (props) => {
   return (
@@ -17,7 +18,7 @@ const App = (props) => {
         <Navbar />
         <div className={style.content}>
           <Routes>
-            <Route path="Profile" element={<Profile />} />
+            <Route path="Profile/*" element={<ProfileContainer />} />
             <Route path="Dialogs/*" element={<DialogsContainer />} />
             <Route path="users" element={<UsersContainer />} />
             <Route path="Groups" element={<Groups />} />

@@ -1,5 +1,6 @@
 const ADD_POST = "ADD_POST";
 const ADD_TEXT_TO_PUBLICATIONS = "ADD_TEXT_TO_PUBLICATIONS";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialState = {
   postsData: [
@@ -8,6 +9,7 @@ let initialState = {
     { id: 1, message: "Completely fine", likesCount: 15 },
   ],
   newPostText: "hello",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,6 +29,8 @@ const profileReducer = (state = initialState, action) => {
       };
     case ADD_TEXT_TO_PUBLICATIONS:
       return { ...state, newPostText: action.text };
+    case SET_USER_PROFILE:
+      return { ...state, profile: action.profile };
     default:
       return state;
   }
@@ -37,7 +41,13 @@ export const addPostCreator = () => {
     type: ADD_POST,
   };
 };
-
+export const setUserProfile = (profile) => {
+  debugger;
+  return {
+    type: SET_USER_PROFILE,
+    profile: profile,
+  };
+};
 export const addTextToPublicationsCreator = (text) => {
   return {
     type: ADD_TEXT_TO_PUBLICATIONS,
