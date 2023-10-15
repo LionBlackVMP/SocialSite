@@ -42,7 +42,6 @@ export const addPostCreator = () => {
   };
 };
 export const setUserProfile = (profile) => {
-  debugger;
   return {
     type: SET_USER_PROFILE,
     profile: profile,
