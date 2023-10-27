@@ -1,7 +1,5 @@
 import React from "react";
 import style from "./general/app.module.scss";
-import Header from "./components/header/header";
-import Profile from "./components/mainContent/profile/profile";
 import Navbar from "./components/navigation/navigation";
 import DialogsContainer from "./components/mainContent/dialogs/dialogsContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -9,12 +7,13 @@ import Groups from "./components/mainContent/groups/groups";
 import Settings from "./components/mainContent/settings/settings";
 import UsersContainer from "./components/mainContent/users/usersContainer";
 import ProfileContainer from "./components/mainContent/profile/ProfileContainer";
+import HeaderContainer from "./components/header/HeaderContainer";
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className={style.wrapper}>
-        <Header />
+        <HeaderContainer />
         <Navbar />
         <div className={style.content}>
           <Routes>

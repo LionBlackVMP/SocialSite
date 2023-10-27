@@ -1,9 +1,16 @@
 header {
   grid-area: header;
   background-color: #baebeb;
+  display: grid;
+  grid-template-columns: 11.5fr 0.5fr;
 
   img {
     width: 64px;
     grid-area: logo;
+  }
+  .loginBlock {
+    a {
+      color: black;
+    }
   }
 }
