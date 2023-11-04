@@ -1,3 +1,5 @@
+import { profileAPI } from "../../../api/api";
+
 const ADD_POST = "ADD_POST";
 const ADD_TEXT_TO_PUBLICATIONS = "ADD_TEXT_TO_PUBLICATIONS";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -41,7 +43,7 @@ export const addPostCreator = () => {
     type: ADD_POST,
   };
 };
-export const setUserProfile = (profile) => {
+const setUserProfile = (profile) => {
   return {
     type: SET_USER_PROFILE,
     profile: profile,
@@ -51,6 +53,13 @@ export const addTextToPublicationsCreator = (text) => {
   return {
     type: ADD_TEXT_TO_PUBLICATIONS,
     text: text,
+  };
+};
+
+export const getUserProfile = (userId) => {
+  return async (dispatch) => {
+    const response = await profileAPI.getUserProfile(userId);
+    dispatch(setUserProfile(response.data));
   };
 };
 
