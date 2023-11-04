@@ -2,6 +2,7 @@ import React from "react";
 import style from "./dialogs.module.scss";
 import Dialog from "./dialog/dialog";
 import Message from "./message/message";
+import { Navigate } from "react-router-dom";
 
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsPage.dialogsData.map((d) => (

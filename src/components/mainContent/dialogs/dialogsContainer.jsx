@@ -1,7 +1,4 @@
-import React from "react";
-
-import Dialog from "./dialog/dialog";
-
+import { withAuthRedirect } from "../../Hoc/WithAuthRedirect";
 import {
   addMessageTextCreator,
   addMessageToPublicationsCreator,
@@ -23,5 +20,5 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(withAuthRedirect(Dialogs));
 export default DialogsContainer;

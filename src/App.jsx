@@ -8,6 +8,7 @@ import Settings from "./components/mainContent/settings/settings";
 import UsersContainer from "./components/mainContent/users/usersContainer";
 import ProfileContainer from "./components/mainContent/profile/ProfileContainer";
 import HeaderContainer from "./components/header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 const App = (props) => {
   return (
@@ -22,6 +23,7 @@ const App = (props) => {
             <Route path="users" element={<UsersContainer />} />
             <Route path="Groups" element={<Groups />} />
             <Route path="Settings" element={<Settings />} />
+            <Route path="login" element={<Login />} />
           </Routes>
         </div>
       </div>
